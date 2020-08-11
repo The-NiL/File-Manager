@@ -17,9 +17,9 @@ def home_check(directory):
         directory = directory.replace('~',os.path.expanduser('~'))
     return directory
 
-def splitter(dest,my_files):
+def splitter(dest, my_files):
 
-    ''' None of your business :D '''
+    ''' utility function '''
 
     my_input_files = {}
     splitted = dest.split()
@@ -45,7 +45,7 @@ def remove(my_files):
 
 def menu():
     
-    '''  None of your business :D  '''
+    '''  Main Menu '''
 
     print("\n\n*For copying all of the files : cp -a destination_path")
     print("*For copying specific file/files : cp filenames(seperated by ',') destination_path")
@@ -55,10 +55,10 @@ def menu():
     dest = input(':')
     return dest
 
-def find(directory,extension):
+def find(directory, extension):
 
     '''
-        --> arguments = string,string
+        --> Parameters = string,string
         ** finds all of the files with desired extension in all 
         of subdirectories of given directory **
         --> output = a dictionary of found file names as keys and their paths as values
@@ -101,7 +101,7 @@ def find(directory,extension):
 def copy(dest,my_files):
 
     '''
-    --> argument = string,dictionary(includes file names as keys and the path
+    --> Parameters = string,dictionary(includes file names as keys and the path
         to them as value)
         ** copies files into the given directory **
     '''
@@ -111,7 +111,7 @@ def copy(dest,my_files):
     dest = home_check(dest)
     for file_name,root in my_files.items(): 
         new_dest = dest + '/' + file_name
-        shutil.copyfile(os.path.join(root,file_name),new_dest)
+        shutil.copyfile(os.path.join(root,file_name), new_dest)
     print('Done =)')
 
 
